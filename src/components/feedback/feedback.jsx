@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import PropTypes from 'prop-types'
-class Counter extends Component {
+import {Statistics} from '../Statistics/Statistics'
+class Feedback extends Component {
    
    static propTypes = {
       good: PropTypes.number,
@@ -26,16 +27,23 @@ class Counter extends Component {
             <button type="button" onClick={this.goodIncrement}>Good</button>
             <button type="button" onClick={this.neutralIncrement}>Neutral</button>
             <button type="button" onClick={this.badIncrement}>Bad</button>
-            {this.countTotalFeedback() > 0 ? (
+            <Statistics
+               good={this.state.good}
+               neutral={ this.state.neutral}
+               bad={ this.state.bad}
+               total={this.countTotalFeedback() }
+               positivePercentage={this.countPositiveFeedbackPercentage() }
+            />
+            {/* {this.countTotalFeedback() > 0 ? (
                <div>
                   <p>Good:{this.state.good}</p>
                   <p>Neutral:{this.state.neutral}</p>
                   <p>Bad:{this.state.bad}</p>
                   <p>Total:{this.countTotalFeedback()}</p>
                   <p>Positive feedback:{this.countPositiveFeedbackPercentage()}%</p>
-               </div>):(<p>none</p>)}
+               </div>):(<p>none</p>)} */}
          </div>
       )
    }
 }
-export default Counter
+export default Feedback

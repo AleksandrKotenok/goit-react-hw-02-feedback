@@ -1,9 +1,11 @@
 import { Fragment } from 'react'
-import Counter from '../feedback/feedback.jsx'
+import Feedback from '../Feedback/Feedback'
 function App() {
   return (
     <Fragment>
-      <Counter/>
+      
+        <span></span>
+      <Feedback/>
     </Fragment>
   )
 }
