@@ -1,0 +1,8 @@
+.statBox{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+.stat{
+   display: flex;
+}
