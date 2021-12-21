@@ -3,22 +3,25 @@ import PropTypes from 'prop-types';
 import s from '../Statistics/Statistics.module.css';
 
 export const Statistics = ({
-  good,
-  neutral,
-  bad,
+  // good,
+  // neutral,
+  // bad,
+  statistics,
   total,
   positivePercentage,
 }) => {
   return (
     <Fragment>
       {total > 0 && (
-        <div className={s.statBox}>
-          <p className={s.stat}>Good:{good}</p>
-          <p className={s.stat}>Neutral:{neutral}</p>
-          <p className={s.stat}>Bad:{bad}</p>
-          <p className={s.stat}>Total:{total}</p>
-          <p className={s.stat}>Positive feedback:{positivePercentage}%</p>
-        </div>
+        <ul className={s.statBox}>
+          {statistics.map(([key, value]) => (
+            <li>
+              {key}:{value}
+            </li>
+          ))}
+          <li className={s.stat}>Total:{total}</li>
+          <li className={s.stat}>Positive feedback:{positivePercentage}%</li>
+        </ul>
       )}
     </Fragment>
   );
